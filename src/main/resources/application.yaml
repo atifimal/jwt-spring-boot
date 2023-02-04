@@ -18,3 +18,4 @@ spring:
 
 jwt:
   secret: atifimalcom
+  expirationMs: 86400000

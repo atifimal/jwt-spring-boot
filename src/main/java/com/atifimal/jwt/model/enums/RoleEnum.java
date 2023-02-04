@@ -1,4 +1,4 @@
-package com.atifimal.jwt.model;
+package com.atifimal.jwt.model.enums;
 
 public enum RoleEnum {
     ROLE_USER,

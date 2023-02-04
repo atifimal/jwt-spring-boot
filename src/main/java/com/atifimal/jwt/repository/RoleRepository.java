@@ -1,7 +1,7 @@
 package com.atifimal.jwt.repository;
 
-import com.atifimal.jwt.model.Role;
-import com.atifimal.jwt.model.RoleEnum;
+import com.atifimal.jwt.model.entity.Role;
+import com.atifimal.jwt.model.enums.RoleEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

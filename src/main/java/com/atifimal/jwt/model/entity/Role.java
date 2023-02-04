@@ -1,12 +1,15 @@
-package com.atifimal.jwt.model;
+package com.atifimal.jwt.model.entity;
 
+import com.atifimal.jwt.model.enums.RoleEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "roles")
