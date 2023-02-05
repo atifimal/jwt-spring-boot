@@ -17,5 +17,5 @@ spring:
       platform: postgres
 
 jwt:
-  secret: atifimalcom
+  secret: c547455a1a9be3b7823119f5e9e3a742fa18a6b6b6e43992bdd756d05655d1d5c547455a1a9be3b7823119f5e9e3a742fa18a6b6b6e43992bdd756d05655d1d5
   expirationMs: 86400000
