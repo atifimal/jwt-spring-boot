@@ -2,6 +2,7 @@ package com.atifimal.jwt.security;
 
 import com.atifimal.jwt.security.jwt.AuthEntryPointJwt;
 import com.atifimal.jwt.security.jwt.AuthTokenFilter;
+import com.atifimal.jwt.security.jwt.JwtUtils;
 import com.atifimal.jwt.security.service.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -26,12 +27,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 public class WebSecurityConfig {
     private final UserDetailsServiceImpl userDetailsService;
-
+    private final JwtUtils jwtUtils;
     private final AuthEntryPointJwt unauthorizedHandler;
 
     @Bean
-    public AuthTokenFilter authenticationJwtTokenFilter() {
-        return new AuthTokenFilter();
+    public AuthTokenFilter authenticationJwtTokenFilter(JwtUtils jwtUtils, UserDetailsServiceImpl userDetailsService) {
+        return new AuthTokenFilter(jwtUtils, userDetailsService);
     }
 
     @Bean
@@ -65,7 +66,7 @@ public class WebSecurityConfig {
 
         http.authenticationProvider(authenticationProvider());
 
-        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authenticationJwtTokenFilter(jwtUtils, userDetailsService), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
